@@ -1,0 +1,19 @@
+<h1>曲の詳細</h1>
+
+<p>
+  <strong>曲名：</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>アーティスト：</strong>
+  <%= @song.artist %>
+</p>
+
+<p>
+  <strong>ジャンル：</strong>
+  <%= @song.genre %>
+</p>
+
+<%= link_to "編集", edit_song_path(@song) %>
+<%= link_to "一覧に戻る", songs_path %>

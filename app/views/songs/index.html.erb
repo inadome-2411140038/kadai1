@@ -1,0 +1,29 @@
+<h1>音楽一覧</h1>
+
+<p>
+  <%= link_to "曲を追加", new_song_path %>
+</p>
+
+<table border="1">
+  <tr>
+    <th>曲名</th>
+    <th>アーティスト</th>
+    <th>ジャンル</th>
+    <th>操作</th>
+  </tr>
+
+  <% @songs.each do |song| %>
+    <tr>
+      <td><%= song.title %></td>
+      <td><%= song.artist %></td>
+      <td><%= song.genre %></td>
+      <td>
+        <%= link_to "詳細", song_path(song) %>
+        <%= link_to "編集", edit_song_path(song) %>
+        <%= button_to "削除", song_path(song),
+              method: :delete,
+              data: { turbo_confirm: "削除しますか？" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
