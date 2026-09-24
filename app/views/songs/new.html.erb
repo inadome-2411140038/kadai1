@@ -1,5 +1,17 @@
 <h1>曲を追加</h1>
 
+<% if @song.errors.any? %>
+  <div class="errors">
+    <h3>入力内容を確認してください</h3>
+
+    <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with model: @song do |f| %>
 
   <p>
