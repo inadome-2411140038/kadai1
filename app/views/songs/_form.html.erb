@@ -1,0 +1,32 @@
+<% if song.errors.any? %>
+  <div class="errors">
+    <h3>入力内容を確認してください</h3>
+
+    <ul>
+      <% song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: song, class: "song-form" do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "曲名" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :artist, "アーティスト" %>
+    <%= f.text_field :artist %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :genre, "ジャンル" %>
+    <%= f.text_field :genre %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit submit_label %>
+  </div>
+<% end %>
